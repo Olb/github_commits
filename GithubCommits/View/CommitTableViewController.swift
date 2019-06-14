@@ -10,7 +10,7 @@ import UIKit
 
 let SEARCH_INFO_SEGUE = "search-info-identifier"
 
-class CommitTableViewController: UITableViewController, RepoCommitsPresenterDelegate {
+class CommitTableViewController: UITableViewController, RepoCommitsPresenterDelegate, SearchRepoViewControllerDelegate {
     
     var commits: Commits = []
     var repoPresenter: RepoPresenter!
@@ -20,13 +20,16 @@ class CommitTableViewController: UITableViewController, RepoCommitsPresenterDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commit-cell-id")
+        
         repoPresenter = RepoPresenter(delegate: self)
     }
     
     // MARK: - RepoCommitsPresenterDelegate methods
     
     func loadCommits(commits: Commits) {
-        
+        self.commits = commits
+        self.tableView.reloadData()
     }
     
     func showSearchViewController() {
@@ -35,6 +38,12 @@ class CommitTableViewController: UITableViewController, RepoCommitsPresenterDele
     
     func showSearchInfo() {
         self.performSegue(withIdentifier: SEARCH_INFO_SEGUE, sender: nil)
+    }
+    
+    // MARK: - SearchRepoViewControllerDelegate methods
+    
+    func commitsFound(commits: Commits) {
+        self.repoPresenter.newCommits(commits: commits)
     }
 
     // MARK: - Table view data source
@@ -47,18 +56,22 @@ class CommitTableViewController: UITableViewController, RepoCommitsPresenterDele
         return commits.count
     }
 
-    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == SEARCH_INFO_SEGUE) {
+            let vc = segue.destination as! SearchRepoViewController
+            vc.delegate = self
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commit-cell-id", for: indexPath) as! CommitTableViewCell
+        
+        cell.name.text = commits[indexPath.row].commitName
+        cell.sha.text = commits[indexPath.row].commitHash
+        cell.message.text = commits[indexPath.row].commitMessage
+        
         return cell
     }
-    */
-
-
- 
 
 
 }

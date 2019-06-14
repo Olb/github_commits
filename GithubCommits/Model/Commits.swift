@@ -22,13 +22,13 @@ struct Commit: Codable {
     
     var commitMessage: String {
         get {
-            return "Message: \(commit.message)"
+            return commit.message
         }
     }
     
     var commitHash: String {
         get {
-            return "Commit: \(self.sha)"
+            return self.sha
         }
     }
     

@@ -10,6 +10,8 @@
 		281B4E8322B3D3B3003FD5D4 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281B4E8222B3D3B3003FD5D4 /* Webservice.swift */; };
 		281B4E8522B3E535003FD5D4 /* RepoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281B4E8422B3E535003FD5D4 /* RepoPresenter.swift */; };
 		281B4E8722B3E61D003FD5D4 /* CommitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281B4E8622B3E61D003FD5D4 /* CommitTableViewController.swift */; };
+		281B4E8C22B3F3DF003FD5D4 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281B4E8A22B3F3DF003FD5D4 /* CommitTableViewCell.swift */; };
+		281B4E8D22B3F3DF003FD5D4 /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281B4E8B22B3F3DF003FD5D4 /* CommitTableViewCell.xib */; };
 		28BA9AEE22B3B6D000BBA2B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BA9AED22B3B6D000BBA2B3 /* AppDelegate.swift */; };
 		28BA9AF322B3B6D000BBA2B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BA9AF122B3B6D000BBA2B3 /* Main.storyboard */; };
 		28BA9AF522B3B6D000BBA2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28BA9AF422B3B6D000BBA2B3 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		281B4E8222B3D3B3003FD5D4 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		281B4E8422B3E535003FD5D4 /* RepoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoPresenter.swift; sourceTree = "<group>"; };
 		281B4E8622B3E61D003FD5D4 /* CommitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewController.swift; sourceTree = "<group>"; };
+		281B4E8A22B3F3DF003FD5D4 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
+		281B4E8B22B3F3DF003FD5D4 /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
 		28BA9AEA22B3B6D000BBA2B3 /* GithubCommits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubCommits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28BA9AED22B3B6D000BBA2B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28BA9AF222B3B6D000BBA2B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 			children = (
 				281B4E8622B3E61D003FD5D4 /* CommitTableViewController.swift */,
 				28BA9B2622B3CA2F00BBA2B3 /* SearchRepoViewController.swift */,
+				281B4E8A22B3F3DF003FD5D4 /* CommitTableViewCell.swift */,
+				281B4E8B22B3F3DF003FD5D4 /* CommitTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				281B4E8D22B3F3DF003FD5D4 /* CommitTableViewCell.xib in Resources */,
 				28BA9AF822B3B6D000BBA2B3 /* LaunchScreen.storyboard in Resources */,
 				28BA9AF522B3B6D000BBA2B3 /* Assets.xcassets in Resources */,
 				28BA9AF322B3B6D000BBA2B3 /* Main.storyboard in Resources */,
@@ -316,6 +323,7 @@
 				281B4E8322B3D3B3003FD5D4 /* Webservice.swift in Sources */,
 				28BA9B2422B3C3EA00BBA2B3 /* SearchRepoPresenter.swift in Sources */,
 				28BA9B1D22B3B9C800BBA2B3 /* RepoSearchInfo.swift in Sources */,
+				281B4E8C22B3F3DF003FD5D4 /* CommitTableViewCell.swift in Sources */,
 				28BA9AEE22B3B6D000BBA2B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

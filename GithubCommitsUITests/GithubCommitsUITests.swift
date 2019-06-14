@@ -61,11 +61,25 @@ class GithubCommitsUITests: XCTestCase {
     }
     
     func testUserSeesCommitsListOnSuccessfulRepoSearch() {
-        XCTFail()
-    }
-    
-    
+        let app = XCUIApplication()
+        let nameTextField =  app.otherElements.textFields["Repo Owner Name"]
+        nameTextField.tap()
+        nameTextField.setText(text: "olb", application: app)
+        
+        let repoTextField =  app.otherElements.textFields["Repo Name"]
+        repoTextField.tap()
+        repoTextField.setText(text: "github_commits", application: app)
+        
+      
+        app.buttons["Show Commits!"].tap()
+        app.buttons["Show Commits!"].tap()
+        sleep(5)
+        
+        let titleQuery = app.staticTexts["Olb"]
+        XCTAssertTrue(titleQuery.exists, "Alert should show with title \"Oops!\"")
 
+       
+    }
 }
 
 extension XCUIElement {

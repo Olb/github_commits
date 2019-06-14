@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commit-cell-id" rowHeight="276" id="KGk-i7-Jjw" customClass="CommitTableViewCell" customModule="GithubCommits" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="276"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="275.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Commit By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-WG-YLc">
+                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cw-C8-PN7">
+                        <rect key="frame" x="16" y="37" width="288" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Commit HASH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM6-bQ-eOB">
+                        <rect key="frame" x="8" y="71" width="304" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hash" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0u-bp-bTs">
+                        <rect key="frame" x="16" y="100" width="288" height="60"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Commit Message:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2j-25-sE8">
+                        <rect key="frame" x="8" y="176" width="304" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJY-e2-Xqk">
+                        <rect key="frame" x="16" y="205" width="288" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hoB-WG-YLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0LI-QN-yvk"/>
+                    <constraint firstItem="lM6-bQ-eOB" firstAttribute="top" secondItem="8Cw-C8-PN7" secondAttribute="bottom" constant="16" id="7Zr-Oo-8w5"/>
+                    <constraint firstItem="RJY-e2-Xqk" firstAttribute="leading" secondItem="r0u-bp-bTs" secondAttribute="leading" id="9Ut-an-b11"/>
+                    <constraint firstItem="r0u-bp-bTs" firstAttribute="top" secondItem="lM6-bQ-eOB" secondAttribute="bottom" constant="8" id="9xd-sR-11s"/>
+                    <constraint firstItem="lM6-bQ-eOB" firstAttribute="trailing" secondItem="hoB-WG-YLc" secondAttribute="trailing" id="EQ9-vd-qab"/>
+                    <constraint firstAttribute="trailing" secondItem="hoB-WG-YLc" secondAttribute="trailing" constant="8" id="FSD-qX-4GL"/>
+                    <constraint firstItem="8Cw-C8-PN7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Jrl-Kp-svv"/>
+                    <constraint firstItem="E2j-25-sE8" firstAttribute="leading" secondItem="lM6-bQ-eOB" secondAttribute="leading" id="Kd9-Ov-4vU"/>
+                    <constraint firstItem="RJY-e2-Xqk" firstAttribute="top" secondItem="E2j-25-sE8" secondAttribute="bottom" constant="8" id="M09-gI-Fjn"/>
+                    <constraint firstItem="E2j-25-sE8" firstAttribute="trailing" secondItem="lM6-bQ-eOB" secondAttribute="trailing" id="UAj-sh-tNI"/>
+                    <constraint firstAttribute="trailing" secondItem="8Cw-C8-PN7" secondAttribute="trailing" constant="16" id="aQw-WF-E5R"/>
+                    <constraint firstItem="hoB-WG-YLc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="boN-bB-PBm"/>
+                    <constraint firstItem="RJY-e2-Xqk" firstAttribute="trailing" secondItem="8Cw-C8-PN7" secondAttribute="trailing" id="e11-Fe-22z"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RJY-e2-Xqk" secondAttribute="bottom" constant="8" id="mX8-7T-I5l"/>
+                    <constraint firstItem="lM6-bQ-eOB" firstAttribute="leading" secondItem="hoB-WG-YLc" secondAttribute="leading" id="t0z-Ea-Ze0"/>
+                    <constraint firstItem="8Cw-C8-PN7" firstAttribute="top" secondItem="hoB-WG-YLc" secondAttribute="bottom" constant="8" id="u3h-q7-9iE"/>
+                    <constraint firstItem="E2j-25-sE8" firstAttribute="top" secondItem="r0u-bp-bTs" secondAttribute="bottom" constant="16" id="wB3-tG-iCF"/>
+                    <constraint firstItem="r0u-bp-bTs" firstAttribute="leading" secondItem="8Cw-C8-PN7" secondAttribute="leading" id="xTy-D2-0Tt"/>
+                    <constraint firstItem="r0u-bp-bTs" firstAttribute="trailing" secondItem="8Cw-C8-PN7" secondAttribute="trailing" id="zFP-b5-sxS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="message" destination="RJY-e2-Xqk" id="rg4-do-96B"/>
+                <outlet property="name" destination="8Cw-C8-PN7" id="MfL-cO-rb4"/>
+                <outlet property="sha" destination="r0u-bp-bTs" id="n0d-6j-6jV"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
