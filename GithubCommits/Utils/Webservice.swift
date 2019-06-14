@@ -26,12 +26,11 @@ class WebService: WebServiceProtocol {
     }
     
     func getCommits(repoSearchInfo: RepoSearchInfo) {
-        
-        print("Called getCommits")
-        
+            
         let url = URL(string: "https://api.github.com/repos/\(repoSearchInfo.ownerName)/\(repoSearchInfo.repoName)/commits")!
         
         let task = URLSession.shared.dataTask(with: url) { (result) in
+            print(url.absoluteString)
             switch result {
             case .success(let res, let data):
                 if let response = res as? HTTPURLResponse {

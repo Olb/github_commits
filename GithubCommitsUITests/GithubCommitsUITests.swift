@@ -22,18 +22,61 @@ class GithubCommitsUITests: XCTestCase {
         app.buttons["Show Commits!"].tap()
         
         let titleQuery = app.staticTexts["Oops!"]
-        XCTAssertTrue(titleQuery.exists, "Alert should show with title \"Ooops!\"")
+        XCTAssertTrue(titleQuery.exists, "Alert should show with title \"Oops!\"")
 //
         let messageQuery = app.staticTexts["Owner name is required."]
         XCTAssertTrue(messageQuery.exists, "Message should say \"Owner name is required.\" when no owner name entered")
     }
+    //testRepoSearchDismissesOnSuccesfulRepoSearch
+    func testUserPromptedIfNoConnection() {
+        
+        let app = XCUIApplication()
+        app.textFields["Repo Owner Name"].tap()
+        
+        let repoNameTextField = app.textFields["Repo Name"]
+        repoNameTextField.tap()
+        repoNameTextField.tap()
+        app.buttons["Show Commits!"].tap()
+        let titleQuery = app.staticTexts["Oops!"]
+        XCTAssertTrue(titleQuery.exists, "Alert should show with title \"Oops!\"")
+        
+    }
     
     func testRepoSearchDismissesOnSuccesfulRepoSearch() {
-        XCTFail()
+        
+        let app = XCUIApplication()
+        let nameTextField =  app.otherElements.textFields["Repo Owner Name"]
+        nameTextField.tap()
+        nameTextField.setText(text: "olb", application: app)
+        
+        let repoTextField =  app.otherElements.textFields["Repo Name"]
+        repoTextField.tap()
+        repoTextField.setText(text: "github_commits", application: app)
+        
+        XCTAssertTrue(app.buttons["Show Commits!"].exists, "Show commits should be present before submission")
+        app.buttons["Show Commits!"].tap()
+        app.buttons["Show Commits!"].tap()
+        sleep(5)
+        XCTAssertFalse(app.buttons["Show Commits!"].exists, "Show commits should not be present before submission")
     }
     
     func testUserSeesCommitsListOnSuccessfulRepoSearch() {
         XCTFail()
     }
+    
+    
 
 }
+
+extension XCUIElement {
+    // The following is a workaround for inputting text in the
+    //simulator when the keyboard is hidden
+    func setText(text: String, application: XCUIApplication) {
+        UIPasteboard.general.string = text
+        doubleTap()
+        application.menuItems["Paste"].tap()
+    }
+}
+
+
+

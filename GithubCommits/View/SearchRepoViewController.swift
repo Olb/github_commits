@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SearchRepoViewControllerDelegate {
+    func commitsFound(commits: Commits)
+}
+
 class SearchRepoViewController: UIViewController, UITextFieldDelegate, RepoSearchPresenterDelegate {
     
     @IBOutlet weak var repoOwnerNameTextField: UITextField!
@@ -16,6 +20,7 @@ class SearchRepoViewController: UIViewController, UITextFieldDelegate, RepoSearc
     
     fileprivate var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var presenter: SearchRepoPresenter!
+    var delegate: SearchRepoViewControllerDelegate?
 
     // MARK: - Lifecyle methods
     
@@ -42,7 +47,10 @@ class SearchRepoViewController: UIViewController, UITextFieldDelegate, RepoSearc
     }
     
     func repoSearchSuccess(commits: Commits) {
-        // MARK: - TODO - Add success
+        DispatchQueue.main.async { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+            self?.delegate?.commitsFound(commits: commits)
+        }
     }
     
     func reportSearchFailed(message: String) {

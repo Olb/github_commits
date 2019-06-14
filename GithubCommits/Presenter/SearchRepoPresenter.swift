@@ -34,19 +34,16 @@ struct SearchRepoPresenter: CommitApiProtocol {
             self.delegate.reportSearchFailed(message: "Repo name is required.")
             self.delegate.hideProgressIndicator()
         } else {
-            print("Called search")
             webService?.getCommits(repoSearchInfo: RepoSearchInfo(ownerName: ownerName, repoName: repoName))
         }
     }
     
     func success(commits: Commits) {
-        print("Called success")
         self.delegate.repoSearchSuccess(commits: commits)
         self.delegate.hideProgressIndicator()
     }
     
     func failure(message: String) {
-        print("Called failure")
         self.delegate.reportSearchFailed(message: "\(message)")
         self.delegate.hideProgressIndicator()
     }
