@@ -19,7 +19,7 @@ class GithubCommitsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testUserGetCommitsForRepo() {
+    func testUserSearchInfoHasCorrectFields() {
         let repoSearchInfo = RepoSearchInfo(ownerName: "Olb", repoName: "github_commits")
         XCTAssertEqual(repoSearchInfo.ownerName, "Olb")
         XCTAssertEqual(repoSearchInfo.repoName, "github_commits")
@@ -31,6 +31,35 @@ class GithubCommitsTests: XCTestCase {
         XCTAssertEqual(commit.commit.author.name, "Olb")
         XCTAssertEqual(commit.commit.message, "a message")
     }
+    
+    func testCanGetCommitFromJson() {
+        let commits = try! JSONDecoder().decode(Commits.self, from: commitJson)
+        XCTAssertEqual(commits.first!.sha, "5f1102288aa8dbd2d69b487f11170717b489e6ab")
+        XCTAssertEqual(commits.first!.commit.message, "Python Analysis")
+        XCTAssertEqual(commits.first!.commit.author.name, "billy")
+    }
+    
+    func testCommitsGiveCorrectFormatedValuesForDisplay() {
+        let commits = try! JSONDecoder().decode(Commits.self, from: commitJson)
+        XCTAssertEqual(commits.first!.commitHash, "Commit: 5f1102288aa8dbd2d69b487f11170717b489e6ab")
+        XCTAssertEqual(commits.first!.commitMessage, "Message: Python Analysis")
+        XCTAssertEqual(commits.first!.commitName, "billy")
+    }
+    
+    
+    let commitJson = """
+[
+  {
+    "sha": "5f1102288aa8dbd2d69b487f11170717b489e6ab",
+    "commit": {
+      "author": {
+        "name": "billy",
+      },
+      "message": "Python Analysis",
+    },
+  }
+]
+""".data(using: .utf8)!
     
     
     
