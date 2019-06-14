@@ -49,6 +49,14 @@ class SearchRepoTests: XCTestCase {
         wait(for: [expect], timeout: 1)
     }
     
+    func testSearchInfoLoadsDefaultGitHubInfo() {
+        let expect = expectation(description: "Should show default github info")
+        var presenter = SearchRepoPresenter(delegate: MockUIViewController2(expectation: expect))
+        presenter.webService = MockWebService(delegate: presenter)
+        presenter.showDefaultGithubInfo()
+        wait(for: [expect], timeout: 1)
+    }
+    
     struct MockWebService: WebServiceProtocol {
         var delegate: CommitApiProtocol
         func getCommits(repoSearchInfo: RepoSearchInfo) {

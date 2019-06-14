@@ -36,6 +36,12 @@ class SearchRepoViewController: UIViewController, UITextFieldDelegate, RepoSearc
         self.presenter.search(ownerName: repoOwnerNameTextField.text! , repoName: repoNameTextField.text!)
     }
     
+    
+    @IBAction func showDefaultGithubInfoPressed(_ sender: Any) {
+        self.presenter.showDefaultGithubInfo()
+    }
+    
+    
     // MARK: - RepoSearchPresenterDelegate methods
     
     func showProgressIndicator() {

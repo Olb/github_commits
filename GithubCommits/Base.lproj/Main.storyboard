@@ -19,13 +19,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pre-Ko-oba">
-                                <rect key="frame" x="35" y="513" width="344" height="33"/>
+                                <rect key="frame" x="35" y="504" width="344" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Show Commits!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.99918931720000004" green="0.73725490199999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="searchRepoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R2W-79-OW7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgk-wp-Qh3">
+                                <rect key="frame" x="35" y="584.5" width="344" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Just Show A Default!">
+                                    <color key="titleColor" red="0.99918931720000004" green="0.73725490199999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showDefaultGithubInfoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5lQ-xT-lJo"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repo Owner Name" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ACt-i3-4hT">
@@ -52,10 +62,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="J8p-F2-fbC"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUo-gt-hu1">
+                                <rect key="frame" x="35" y="545" width="344" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.31294424506300428" green="0.66666668653488159" blue="0.35339122441751336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.31372549019607843" green="0.66666666666666663" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pre-Ko-oba" firstAttribute="top" secondItem="Kwi-Zr-gFn" secondAttribute="bottom" constant="35" id="1HE-ZW-z3H"/>
+                            <constraint firstItem="pre-Ko-oba" firstAttribute="top" secondItem="Kwi-Zr-gFn" secondAttribute="bottom" constant="26" id="1HE-ZW-z3H"/>
+                            <constraint firstItem="Sgk-wp-Qh3" firstAttribute="trailing" secondItem="pre-Ko-oba" secondAttribute="trailing" id="2Fp-0g-kJz"/>
+                            <constraint firstItem="aUo-gt-hu1" firstAttribute="top" secondItem="pre-Ko-oba" secondAttribute="bottom" constant="8" id="4lc-y3-nxA"/>
                             <constraint firstItem="E7S-RL-gfd" firstAttribute="leading" secondItem="ACt-i3-4hT" secondAttribute="leading" id="8bU-b5-9sg"/>
                             <constraint firstItem="Kwi-Zr-gFn" firstAttribute="leading" secondItem="ACt-i3-4hT" secondAttribute="leading" id="BcM-lq-6A4"/>
                             <constraint firstItem="pre-Ko-oba" firstAttribute="leading" secondItem="Kwi-Zr-gFn" secondAttribute="leading" id="GWT-QR-nSd"/>
@@ -63,9 +81,13 @@
                             <constraint firstItem="pre-Ko-oba" firstAttribute="trailing" secondItem="Kwi-Zr-gFn" secondAttribute="trailing" id="NC3-ET-XkH"/>
                             <constraint firstItem="ACt-i3-4hT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="Yqx-Cl-ZuW"/>
                             <constraint firstItem="Kwi-Zr-gFn" firstAttribute="top" secondItem="ACt-i3-4hT" secondAttribute="bottom" constant="20" id="aJ9-Io-stI"/>
+                            <constraint firstItem="aUo-gt-hu1" firstAttribute="trailing" secondItem="E7S-RL-gfd" secondAttribute="trailing" id="dPI-kn-NIO"/>
+                            <constraint firstItem="aUo-gt-hu1" firstAttribute="leading" secondItem="E7S-RL-gfd" secondAttribute="leading" id="ebX-3W-pCW"/>
                             <constraint firstItem="ACt-i3-4hT" firstAttribute="top" secondItem="E7S-RL-gfd" secondAttribute="bottom" constant="35" id="gb1-ga-hGP"/>
+                            <constraint firstItem="Sgk-wp-Qh3" firstAttribute="leading" secondItem="pre-Ko-oba" secondAttribute="leading" id="hcd-0o-UOe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ACt-i3-4hT" secondAttribute="trailing" constant="35" id="iK9-Zw-wm9"/>
                             <constraint firstItem="Kwi-Zr-gFn" firstAttribute="trailing" secondItem="ACt-i3-4hT" secondAttribute="trailing" id="k8s-K9-PJD"/>
+                            <constraint firstItem="Sgk-wp-Qh3" firstAttribute="top" secondItem="aUo-gt-hu1" secondAttribute="bottom" constant="8" id="kf2-4b-bhg"/>
                             <constraint firstItem="ACt-i3-4hT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-35" id="wOj-4y-8EY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="706"/>
+            <point key="canvasLocation" x="1547.8260869565217" y="705.80357142857144"/>
         </scene>
         <!--Commit Table View Controller-->
         <scene sceneID="C5O-yE-2gT">
@@ -88,7 +110,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W7f-42-Etq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.31372549019607843" green="0.66666666666666663" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commit-cell-id" id="wNT-Cb-WTq" customClass="CommitTableViewCell" customModule="GithubCommits" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -106,6 +128,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="XIf-bp-7Sh">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="A6a-NI-maB">
+                            <color key="tintColor" red="0.99918931720000004" green="0.73725490199999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="searchPressed:" destination="tpg-JA-e8Y" id="fi4-5U-rdN"/>
                             </connections>

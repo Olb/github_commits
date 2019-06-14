@@ -28,7 +28,7 @@ class GithubCommitsUITests: XCTestCase {
         let messageQuery = app.staticTexts["Owner name is required."]
         XCTAssertTrue(messageQuery.exists, "Message should say \"Owner name is required.\" when no owner name entered")
     }
-    //testRepoSearchDismissesOnSuccesfulRepoSearch
+
     func testUserPromptedIfNoConnection() {
         
         let app = XCUIApplication()
@@ -76,7 +76,7 @@ class GithubCommitsUITests: XCTestCase {
         sleep(5)
         
         let titleQuery = app.staticTexts["Olb"]
-        XCTAssertTrue(titleQuery.exists, "Alert should show with title \"Oops!\"")
+        XCTAssertTrue(titleQuery.exists, "\"Olb\" should be an author name on page")
     }
     
     func testSearchShownWhenSearchPressedOnCommitList() {
@@ -100,11 +100,22 @@ class GithubCommitsUITests: XCTestCase {
 
         XCTAssertTrue(app.buttons["Show Commits!"].exists, "Search info screen should be displayed")
     }
+    
+    func testUserCanUseDefaultInfo() {
+        
+        let app = XCUIApplication()
+        app.buttons["Just Show A Default!"].tap()
+
+        sleep(5)
+        
+        let titleQuery = app.staticTexts["Olb"]
+        XCTAssertTrue(titleQuery.exists, "\"Olb\" should be an author name on page")
+    }
 }
 
 extension XCUIElement {
     // The following is a workaround for inputting text in the
-    //simulator when the keyboard is hidden
+    // simulator when the keyboard is hidden
     func setText(text: String, application: XCUIApplication) {
         UIPasteboard.general.string = text
         doubleTap()

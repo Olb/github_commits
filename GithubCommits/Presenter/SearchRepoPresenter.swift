@@ -15,6 +15,9 @@ protocol RepoSearchPresenterDelegate {
     func reportSearchFailed(message: String)
 }
 
+let DEFAULT_OWNER = "olb"
+let DEFAULT_REPO = "github_commits"
+
 struct SearchRepoPresenter: CommitApiProtocol {
     
     let delegate: RepoSearchPresenterDelegate
@@ -22,6 +25,10 @@ struct SearchRepoPresenter: CommitApiProtocol {
     
     init(delegate: RepoSearchPresenterDelegate) {
         self.delegate = delegate
+    }
+    
+    func showDefaultGithubInfo() {
+        webService?.getCommits(repoSearchInfo: RepoSearchInfo(ownerName: DEFAULT_OWNER, repoName: DEFAULT_REPO))
     }
     
     func search(ownerName: String, repoName: String) {
