@@ -10,7 +10,6 @@ import Foundation
 
 protocol RepoCommitsPresenterDelegate {
     func loadCommits(commits: Commits)
-    func showSearchViewController()
     func showSearchInfo()
 }
 

@@ -33,8 +33,8 @@ class GithubCommitsTests: XCTestCase {
     
     func testCommitsGiveCorrectFormatedValuesForDisplay() {
         let commits = try! JSONDecoder().decode(Commits.self, from: commitJson)
-        XCTAssertEqual(commits.first!.commitHash, "Commit: 5f1102288aa8dbd2d69b487f11170717b489e6ab")
-        XCTAssertEqual(commits.first!.commitMessage, "Message: github_commits")
+        XCTAssertEqual(commits.first!.commitHash, "5f1102288aa8dbd2d69b487f11170717b489e6ab")
+        XCTAssertEqual(commits.first!.commitMessage, "github_commits")
         XCTAssertEqual(commits.first!.commitName, "billy")
     }
     
@@ -56,6 +56,51 @@ class GithubCommitsTests: XCTestCase {
         searchRepoPresenter.search(ownerName: "pass", repoName: "test")
         wait(for: [expect], timeout: 1)
         
+    }
+    
+    func testRepoPresenterShowsSearchInfo() {
+        let expect = expectation(description: "Presenter delegate shows search info when search pressed")
+        let repoPresenter = RepoPresenter(delegate: MockRepoDelegate1(expectation: expect))
+        repoPresenter.searchPressed()
+        wait(for: [expect], timeout: 1)
+    }
+    
+    func testRepoPresenterLoadsCommits() {
+        let expect = expectation(description: "Presenter delegate loads commits")
+        let repoPresenter = RepoPresenter(delegate: MockRepoDelegate2(expectation: expect))
+        repoPresenter.newCommits(commits: [])
+        wait(for: [expect], timeout: 1)
+    }
+    
+    class MockRepoDelegate1: RepoCommitsPresenterDelegate {
+        var expect: XCTestExpectation?
+        
+        init(expectation: XCTestExpectation) {
+            self.expect = expectation
+        }
+        
+        func loadCommits(commits: Commits) {
+        }
+        
+        func showSearchInfo() {
+            self.expect?.fulfill()
+            self.expect = nil
+        }
+    }
+    
+    class MockRepoDelegate2: RepoCommitsPresenterDelegate {
+        let expect: XCTestExpectation
+        
+        init(expectation: XCTestExpectation) {
+            self.expect = expectation
+        }
+        
+        func loadCommits(commits: Commits) {
+            self.expect.fulfill()
+        }
+        
+        func showSearchInfo() {
+        }
     }
     
     struct MockWebService: WebServiceProtocol {
