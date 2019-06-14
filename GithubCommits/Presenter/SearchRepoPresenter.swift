@@ -15,15 +15,17 @@ protocol RepoSearchPresenterDelegate {
     func reportSearchFailed(message: String)
 }
 
-struct SearchRepoPresenter {
+struct SearchRepoPresenter: CommitApiProtocol {
     
     let delegate: RepoSearchPresenterDelegate
+    var webService: WebServiceProtocol?
     
     init(delegate: RepoSearchPresenterDelegate) {
         self.delegate = delegate
     }
     
     func search(ownerName: String, repoName: String) {
+
         self.delegate.showProgressIndicator()
         if (ownerName.isEmpty) {
             self.delegate.reportSearchFailed(message: "Owner name is required.")
@@ -32,17 +34,19 @@ struct SearchRepoPresenter {
             self.delegate.reportSearchFailed(message: "Repo name is required.")
             self.delegate.hideProgressIndicator()
         } else {
-            self.delegate.repoSearchSuccess(commits: [])
-            self.delegate.hideProgressIndicator()
+            print("Called search")
+            webService?.getCommits(repoSearchInfo: RepoSearchInfo(ownerName: ownerName, repoName: repoName))
         }
     }
     
     func success(commits: Commits) {
+        print("Called success")
         self.delegate.repoSearchSuccess(commits: commits)
         self.delegate.hideProgressIndicator()
     }
     
     func failure(message: String) {
+        print("Called failure")
         self.delegate.reportSearchFailed(message: "\(message)")
         self.delegate.hideProgressIndicator()
     }

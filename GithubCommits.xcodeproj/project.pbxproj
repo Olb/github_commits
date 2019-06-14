@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281B4E8322B3D3B3003FD5D4 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281B4E8222B3D3B3003FD5D4 /* Webservice.swift */; };
 		28BA9AEE22B3B6D000BBA2B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BA9AED22B3B6D000BBA2B3 /* AppDelegate.swift */; };
 		28BA9AF322B3B6D000BBA2B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BA9AF122B3B6D000BBA2B3 /* Main.storyboard */; };
 		28BA9AF522B3B6D000BBA2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28BA9AF422B3B6D000BBA2B3 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		281B4E8222B3D3B3003FD5D4 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		28BA9AEA22B3B6D000BBA2B3 /* GithubCommits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubCommits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28BA9AED22B3B6D000BBA2B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28BA9AF222B3B6D000BBA2B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		281B4E8122B3D38A003FD5D4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				281B4E8222B3D3B3003FD5D4 /* Webservice.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		28BA9AE122B3B6D000BBA2B3 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		28BA9AEC22B3B6D000BBA2B3 /* GithubCommits */ = {
 			isa = PBXGroup;
 			children = (
+				281B4E8122B3D38A003FD5D4 /* Utils */,
 				28BA9B2522B3CA1600BBA2B3 /* View */,
 				28BA9B2222B3C3D900BBA2B3 /* Presenter */,
 				28BA9B1B22B3B9A600BBA2B3 /* Model */,
@@ -294,6 +305,7 @@
 			files = (
 				28BA9B1F22B3BACE00BBA2B3 /* Commits.swift in Sources */,
 				28BA9B2722B3CA2F00BBA2B3 /* SearchRepoViewController.swift in Sources */,
+				281B4E8322B3D3B3003FD5D4 /* Webservice.swift in Sources */,
 				28BA9B2422B3C3EA00BBA2B3 /* SearchRepoPresenter.swift in Sources */,
 				28BA9B1D22B3B9C800BBA2B3 /* RepoSearchInfo.swift in Sources */,
 				28BA9AEE22B3B6D000BBA2B3 /* AppDelegate.swift in Sources */,

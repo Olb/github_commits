@@ -22,6 +22,7 @@ class SearchRepoViewController: UIViewController, UITextFieldDelegate, RepoSearc
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = SearchRepoPresenter(delegate: self)
+        self.presenter.webService = WebService(delegate: self.presenter)
     }
     
     // MARK: - IBActions

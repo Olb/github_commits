@@ -27,7 +27,8 @@ class SearchRepoTests: XCTestCase {
     
     func testUserSearchesForRepoUsingOwnerNameAndRepoNameGetSuccess() {
         let expect = expectation(description: "User should get success on valid owner name and repo name")
-        let presenter = SearchRepoPresenter(delegate: MockUIViewController2(expectation: expect))
+        var presenter = SearchRepoPresenter(delegate: MockUIViewController2(expectation: expect))
+        presenter.webService = MockWebService(delegate: presenter)
         presenter.search(ownerName: "olb", repoName: "github_commits")
         wait(for: [expect], timeout: 1)
     }
@@ -41,9 +42,22 @@ class SearchRepoTests: XCTestCase {
     
     func testUserNotShownProgressIndicatorWhenSearchComplete() {
         let expect = expectation(description: "Progress indicator should hide when search for repo ends")
-        let presenter = SearchRepoPresenter(delegate: MockUIViewController4(expectation: expect))
+        var presenter = SearchRepoPresenter(delegate: MockUIViewController4(expectation: expect))
+        presenter.webService = MockWebService(delegate: presenter)
+
         presenter.search(ownerName: "olb", repoName: "github_commits")
         wait(for: [expect], timeout: 1)
+    }
+    
+    struct MockWebService: WebServiceProtocol {
+        var delegate: CommitApiProtocol
+        func getCommits(repoSearchInfo: RepoSearchInfo) {
+            if repoSearchInfo.ownerName == "fail" {
+                delegate.failure(message: "fail")
+            } else {
+                delegate.success(commits: [])
+            }
+        }
     }
     
     
