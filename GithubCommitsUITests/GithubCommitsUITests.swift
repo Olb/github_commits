@@ -18,12 +18,13 @@ class GithubCommitsUITests: XCTestCase {
     }
 
     func testUserSeesErrorMessageWithoutRequiredInfo() {
+        
         let app = XCUIApplication()
         app.buttons["Show Commits!"].tap()
         
         let titleQuery = app.staticTexts["Oops!"]
         XCTAssertTrue(titleQuery.exists, "Alert should show with title \"Oops!\"")
-//
+
         let messageQuery = app.staticTexts["Owner name is required."]
         XCTAssertTrue(messageQuery.exists, "Message should say \"Owner name is required.\" when no owner name entered")
     }
@@ -39,7 +40,6 @@ class GithubCommitsUITests: XCTestCase {
         app.buttons["Show Commits!"].tap()
         let titleQuery = app.staticTexts["Oops!"]
         XCTAssertTrue(titleQuery.exists, "Alert should show with title \"Oops!\"")
-        
     }
     
     func testRepoSearchDismissesOnSuccesfulRepoSearch() {
@@ -61,6 +61,7 @@ class GithubCommitsUITests: XCTestCase {
     }
     
     func testUserSeesCommitsListOnSuccessfulRepoSearch() {
+        
         let app = XCUIApplication()
         let nameTextField =  app.otherElements.textFields["Repo Owner Name"]
         nameTextField.tap()
@@ -70,15 +71,34 @@ class GithubCommitsUITests: XCTestCase {
         repoTextField.tap()
         repoTextField.setText(text: "github_commits", application: app)
         
-      
         app.buttons["Show Commits!"].tap()
         app.buttons["Show Commits!"].tap()
         sleep(5)
         
         let titleQuery = app.staticTexts["Olb"]
         XCTAssertTrue(titleQuery.exists, "Alert should show with title \"Oops!\"")
+    }
+    
+    func testSearchShownWhenSearchPressedOnCommitList() {
+        
+        let app = XCUIApplication()
+        let nameTextField =  app.otherElements.textFields["Repo Owner Name"]
+        nameTextField.tap()
+        nameTextField.setText(text: "olb", application: app)
+        
+        let repoTextField =  app.otherElements.textFields["Repo Name"]
+        repoTextField.tap()
+        repoTextField.setText(text: "github_commits", application: app)
+        
+        app.buttons["Show Commits!"].tap()
+        app.buttons["Show Commits!"].tap()
+        sleep(5)
+        
+        app.buttons["Search"].tap()
 
-       
+        sleep(5)
+
+        XCTAssertTrue(app.buttons["Show Commits!"].exists, "Search info screen should be displayed")
     }
 }
 

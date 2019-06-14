@@ -25,15 +25,16 @@ class CommitTableViewController: UITableViewController, RepoCommitsPresenterDele
         repoPresenter = RepoPresenter(delegate: self)
     }
     
+    
+    @IBAction func searchPressed(_ sender: Any) {
+        self.repoPresenter.searchPressed()
+    }
+    
     // MARK: - RepoCommitsPresenterDelegate methods
     
     func loadCommits(commits: Commits) {
         self.commits = commits
         self.tableView.reloadData()
-    }
-    
-    func showSearchViewController() {
-        
     }
     
     func showSearchInfo() {

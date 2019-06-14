@@ -21,7 +21,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pre-Ko-oba">
                                 <rect key="frame" x="35" y="513" width="344" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <state key="normal" title="Show Commits!"/>
+                                <state key="normal" title="Show Commits!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="searchRepoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R2W-79-OW7"/>
                                 </connections>
@@ -38,7 +40,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter owner name and repo name to see commits." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7S-RL-gfd">
                                 <rect key="frame" x="35" y="299.5" width="344" height="63.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repo Name" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwi-Zr-gFn">
@@ -51,7 +53,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.31294424506300428" green="0.66666668653488159" blue="0.35339122441751336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pre-Ko-oba" firstAttribute="top" secondItem="Kwi-Zr-gFn" secondAttribute="bottom" constant="35" id="1HE-ZW-z3H"/>
                             <constraint firstItem="E7S-RL-gfd" firstAttribute="leading" secondItem="ACt-i3-4hT" secondAttribute="leading" id="8bU-b5-9sg"/>
@@ -102,7 +104,13 @@
                             <outlet property="delegate" destination="tpg-JA-e8Y" id="z0P-le-Rng"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="XIf-bp-7Sh"/>
+                    <navigationItem key="navigationItem" id="XIf-bp-7Sh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="A6a-NI-maB">
+                            <connections>
+                                <action selector="searchPressed:" destination="tpg-JA-e8Y" id="fi4-5U-rdN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="search-info-identifier" id="cRN-I8-BFh"/>
                     </connections>
