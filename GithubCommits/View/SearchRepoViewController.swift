@@ -41,7 +41,6 @@ class SearchRepoViewController: UIViewController, UITextFieldDelegate, RepoSearc
         self.presenter.showDefaultGithubInfo()
     }
     
-    
     // MARK: - RepoSearchPresenterDelegate methods
     
     func showProgressIndicator() {
@@ -69,6 +68,7 @@ class SearchRepoViewController: UIViewController, UITextFieldDelegate, RepoSearc
 }
 
 extension SearchRepoViewController {
+    
     // MARK: - Activity indicator methods
     
     func addActivityIndicator() {

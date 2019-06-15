@@ -25,6 +25,7 @@ class CommitTableViewController: UITableViewController, RepoCommitsPresenterDele
         repoPresenter = RepoPresenter(delegate: self)
     }
     
+    // MARK: - IBActions
     
     @IBAction func searchPressed(_ sender: Any) {
         self.repoPresenter.searchPressed()
@@ -56,13 +57,6 @@ class CommitTableViewController: UITableViewController, RepoCommitsPresenterDele
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return commits.count
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == SEARCH_INFO_SEGUE) {
-            let vc = segue.destination as! SearchRepoViewController
-            vc.delegate = self
-        }
-    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commit-cell-id", for: indexPath) as! CommitTableViewCell
@@ -72,6 +66,15 @@ class CommitTableViewController: UITableViewController, RepoCommitsPresenterDele
         cell.message.text = commits[indexPath.row].commitMessage
         
         return cell
+    }
+    
+    // MARK: - Navigation methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == SEARCH_INFO_SEGUE) {
+            let vc = segue.destination as! SearchRepoViewController
+            vc.delegate = self
+        }
     }
 
 
